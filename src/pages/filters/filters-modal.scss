@@ -1,0 +1,38 @@
+filters-modal {
+    .header-button {
+        color: #8190A5;
+    }
+
+    .modal-item-segment {
+        .modal-segment {
+            margin-left: 15px;
+        }
+
+        ion-label {
+            display: contents !important;
+        }
+
+        .modal-segment-button {
+            font-size: 0.7em;
+        }
+    }
+
+    ion-range {
+        padding-top: 0px !important;
+    }
+
+    .badge {
+        top: 3px;
+        position: absolute;
+        right: 15px;
+    }
+
+    .modal-footer {
+        text-align: center;
+    }
+
+    .modal-footer-button {
+        font-weight: bold;
+    }
+
+}
