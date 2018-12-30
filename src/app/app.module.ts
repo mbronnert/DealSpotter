@@ -4,8 +4,9 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
+import { ContactPage } from '../pages/contact/contact';
+import { HomePage, DetailPopover } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
-import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -20,6 +21,7 @@ import {SignInPage} from "../pages/signin/signin";
     ProfilePage,
     HomePage,
     TabsPage,
+    DetailPopover
     SignUpPage,
     SignInPage
   ],
@@ -36,7 +38,7 @@ import {SignInPage} from "../pages/signin/signin";
     ProfilePage,
     HomePage,
     TabsPage,
-
+    DetailPopover
   ],
   providers: [
     StatusBar,

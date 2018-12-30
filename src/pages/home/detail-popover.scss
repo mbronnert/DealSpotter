@@ -1,0 +1,58 @@
+detail-popover {
+
+    .popover-content {
+
+        width: 100% !important;
+        max-height:100% !important;
+        text-align: center;
+
+        .popover-title {
+            margin-top: 5px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #A4C5B7;
+        }
+
+        .popover-description {
+            padding: 10px;
+        }
+
+        .popover-restaurant-description {
+            height: 51px;
+            overflow-y: auto;
+            margin-bottom: 5px;
+        }
+
+        .popover-distance {
+            font-size: 0.9em;
+            color: #343F4B;
+            float: left;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .popover-labels {
+
+        }
+
+        .slides {
+            height: 120px !important;
+            background-color: #BED1C8;
+            margin-top: 35px;
+            margin-bottom: 10px;
+        }
+
+        .popover-slide-deal {
+            font-size: 1.1em;
+            padding: 10px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #343F4B;
+        }
+
+        .popover-maps {
+            color: #7F978B;
+        }
+    }
+}
