@@ -6,7 +6,7 @@
 
 <ion-content class="card-background-page">
 
-  <ion-card *ngFor="let deal of dealsList">
+  <ion-card *ngFor="let deal of dealsList" (click)="viewDetails(deal)">
     <img src="assets/imgs/restaurants-pictures/{{deal.picture}}"/>
     <div class="card-left">
         <div class="card-title">{{deal.name}}</div>
@@ -14,7 +14,7 @@
         <div class="card-distance">{{deal.distance}}km away</div>
     </div>
     <div class="card-right">
-        <div class="card-title">{{deal.restaurant}}</div>
+        <div class="card-title">{{deal.restaurantName}}</div>
         <div class="card-subtitle">{{deal.type}}</div>
         <div class="card-label"></div>
     </div>

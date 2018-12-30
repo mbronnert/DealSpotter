@@ -1,0 +1,20 @@
+<ion-content class="popover-content">
+    <img src="assets/imgs/details-pictures/{{this.dealsList[0].picture}}"/>
+    <div class="popover-title">{{this.restaurant.restaurantName}}</div>
+    <div class="popover-description">
+        <div class="popover-restaurant-description">{{this.restaurant.restaurantDescription}}</div>
+        Environment: {{this.restaurant.environment}}
+    </div>
+    <div class="popover-footer">
+        <div class="popover-distance">{{this.dealsList[0].distance}}km away</div>
+        <div class="popover-labels"></div> <!--TODO: Add the labels-->
+    </div>
+    <ion-slides pager class="popover-slides">
+      <ion-slide *ngFor="let deal of this.dealsList">
+        <h1 class="popover-slide-deal">{{deal.description}}</h1>
+      </ion-slide>
+    </ion-slides>
+    <div class="popover-maps" (click)="openGoogleMaps()">
+        Show on Google Maps
+        <ion-icon name="arrow-forward"></ion-icon></div>
+</ion-content>
