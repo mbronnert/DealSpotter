@@ -1,0 +1,62 @@
+<ion-content class="login-content" padding>
+
+  <ion-row class="logo-row">
+    <ion-row></ion-row>
+    <ion-row></ion-row>
+    <ion-col width-67>
+      <img src="../../assets/imgs/DealSpotter_Logobig.png"/>
+    </ion-col>
+  </ion-row>
+
+  <ion-row></ion-row>
+  <ion-row></ion-row>
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+    <ion-col width-67>
+      <ion-title block clear>Sign Up</ion-title>
+    </ion-col>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
+  <div class="login-box">
+    <form (ngSubmit)="signup()" #registerForm="ngForm">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Name" name="name" [(ngModel)]="registerCredentials.name" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+            </ion-item>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Sign Up</button>
+        </ion-col>
+      </ion-row>
+    </form>
+
+      <ion-row>
+        <button ion-button color="secondary" class="register-btn" block clear (click)="presentConfirm()">By creating an account, you agree <br>to our terms and conditions</button>
+        <button ion-button color="secondary" class="register-btn" block clear (click)="goToSignInPage()">Already have an account? Sign in</button>
+      </ion-row>
+
+  </div>
+</ion-content>

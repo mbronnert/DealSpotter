@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "DealSpotter",
+  "short_name": "DealSpotter",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
