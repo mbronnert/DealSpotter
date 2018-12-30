@@ -30,14 +30,14 @@
   </ion-row>
 
   <ion-card>
-    <ion-card-header color="secondary">
+    <ion-card-header color="primary">
       Always apply these filters
     </ion-card-header>
 
     <ion-list>
       <ion-item>
         <ion-label>Student</ion-label>
-        <ion-toggle color="secondary" checked="false"></ion-toggle>
+        <ion-toggle color="primary" checked="false"></ion-toggle>
       </ion-item>
 
       <ion-item>
@@ -45,7 +45,7 @@
       </ion-item>
       <ion-item>
 
-            <ion-segment [(ngModel)]="foodPrefs" color="secondary" (ionChange)="segmentChanged()">
+            <ion-segment [(ngModel)]="foodPrefs" color="primary" (ionChange)="segmentChanged()">
               <ion-segment-button class="segment-button segment-activated"  value="none">None</ion-segment-button>
               <ion-segment-button value="vegetarian">Vegetarian</ion-segment-button>
               <ion-segment-button value="vegan">Vegan</ion-segment-button>
@@ -58,21 +58,21 @@
 
 
   <ion-card>
-    <ion-card-header color="secondary">
+    <ion-card-header color="primary">
       Notification Settings
     </ion-card-header>
 
     <ion-list>
       <ion-item>
         <ion-label>Allow notifications</ion-label>
-        <ion-toggle color="secondary" checked="true"></ion-toggle>
+        <ion-toggle color="primary" checked="true"></ion-toggle>
       </ion-item>
 
     </ion-list>
   </ion-card>
 
   <ion-card>
-    <ion-card-header color="secondary">
+    <ion-card-header color="primary">
       Profile
     </ion-card-header>
 
