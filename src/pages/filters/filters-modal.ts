@@ -28,4 +28,16 @@ export class FiltersModal {
     validateFilters() {
         this.viewCtrl.dismiss(this.filters);
     }
+
+    restartFilters() {
+        this.filters = {
+            foodType: [] ,
+            maxPrice: 'none',
+            momentOfTheDay: [],
+            dealType: [],
+            foodPreference: 'none',
+            dealMood: [],
+            radius: 10,
+        };
+    }
 }
