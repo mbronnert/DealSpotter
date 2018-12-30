@@ -1,11 +1,15 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button color="primary" (click)="openFiltersModal()">
+          Filter
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="card-background-page">
-
   <ion-card *ngFor="let deal of dealsList" (click)="viewDetails(deal)">
     <img src="assets/imgs/restaurants-pictures/{{deal.picture}}"/>
     <div class="card-left">

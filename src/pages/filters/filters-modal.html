@@ -1,0 +1,89 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Filters
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button color="primary" (click)="dismiss()">
+                Back
+            </button>
+        </ion-buttons>
+        <ion-buttons end>
+            <button ion-button color="primary" (click)="validateFilters()">
+                OK
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-label>Food type</ion-label>
+            <ion-select multiple="true" [(ngModel)]="filters.foodType">
+                <ion-option value="indian">Indian</ion-option>
+                <ion-option value="european">European</ion-option>
+                <ion-option value="italian">Italian</ion-option>
+                <ion-option value="asian">Asian</ion-option>
+                <ion-option value="pizzeria">Pizzeria</ion-option>
+                <ion-option value="healthy">Healthy</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Max price</ion-label>
+            <ion-select [(ngModel)]="filters.maxPrice">
+                <ion-option value="100">100 SEK</ion-option>
+                <ion-option value="200">200 SEK</ion-option>
+                <ion-option value="300">300 SEK</ion-option>
+                <ion-option value="400">400 SEK</ion-option>
+                <ion-option value="none">None</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Moment of the day</ion-label>
+            <ion-select multiple="true" [(ngModel)]="filters.momentOfTheDay">
+                <ion-option value="breakfast">Breakfast</ion-option>
+                <ion-option value="lunch">Lunch</ion-option>
+                <ion-option value="fika">Fika</ion-option>
+                <ion-option value="dinner">Dinner</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Deal type </ion-label>
+            <ion-select multiple="true" [(ngModel)]="filters.dealType">
+                <ion-option value="specialOffer">Special offer</ion-option>
+                <ion-option value="Discount">Discount</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item class="modal-item-segment">
+            Food preference
+            <ion-segment class="modal-segment"[(ngModel)]="filters.foodPreference">
+                <ion-segment-button class="modal-segment-button" value="none">
+                  None
+                </ion-segment-button>
+                <ion-segment-button class="modal-segment-button" value="vegetarian">
+                  Vegetarian
+                </ion-segment-button>
+                <ion-segment-button class="modal-segment-button" value="vegan">
+                  Vegan
+                </ion-segment-button>
+              </ion-segment>
+        </ion-item>
+        <ion-item>
+            <ion-label>Deal mood</ion-label>
+            <ion-select multiple="true" [(ngModel)]="filters.dealMood">
+                <ion-option value="cosy">Cosy</ion-option>
+                <ion-option value="romantic">Romantic</ion-option>
+                <ion-option value="chic">Chic</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item style="display:block;">
+            <ion-label item-start>Radius</ion-label>
+            <ion-badge class="badge" item-end>{{filters.radius}}</ion-badge>
+            <ion-range min="0" max="10" step="0.1" pin="true" [(ngModel)]="filters.radius">
+               <ion-label small range-left>0 km</ion-label>
+               <ion-label small range-right>10 km</ion-label>
+             </ion-range>
+        </ion-item>
+    </ion-list>
+</ion-content>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, PopoverController, ModalController, ViewController, NavParams } from 'ionic-angular';
+import { FiltersModal } from '../filters/filters-modal';
 
 @Component({
     selector: 'page-home',
@@ -65,6 +66,15 @@ export class HomePage {
         },
     ]
 
+    filters = { foodType: [] ,
+        maxPrice: 'none',
+        momentOfTheDay: [],
+        dealType: [],
+        foodPreference: 'none',
+        dealMood: [],
+        radius: 10,
+    };
+
     constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, public modalCtrl: ModalController) {
 
     }
@@ -72,6 +82,15 @@ export class HomePage {
     viewDetails(deal) {
         const popover = this.popoverCtrl.create(DetailPopover, { dealID: deal.id, restaurantID: deal.restaurantID, dealsList: this.dealsList });
         popover.present();
+    }
+
+    openFiltersModal() {
+        console.log("clicked");
+        const modal = this.modalCtrl.create(FiltersModal, { filters: this.filters });
+        modal.onDidDismiss(data => {
+            this.filters = data
+       });
+        modal.present();
     }
 
 }
