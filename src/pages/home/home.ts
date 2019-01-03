@@ -18,7 +18,16 @@ export class HomePage {
             type: "EUROPEAN FOOD",
             distance: 0.2,
             picture: "europeanfood.jpg",
-            labels: []
+            labels: ['expensive', 'vegan', 'forStudent'],
+            filters: {
+                foodType: ['european'],
+                maxPrice: '400',
+                momentOfTheDay: ['lunch', 'dinner'],
+                forStudent: true,
+                dealType: ['discount'],
+                servedFood: ['none', 'vegetarian', 'vegan'],
+                dealMood: ['cosy', 'romantic', 'chic'],
+            }
         },
         {
             id: 2,
@@ -29,7 +38,16 @@ export class HomePage {
             type: "PIZZERIA",
             distance: 0.3,
             picture: "pizzeria.jpg",
-            labels: []
+            labels: ['medium', 'vegan'],
+            filters: {
+                foodType: ['pizzeria'],
+                maxPrice: '200',
+                momentOfTheDay: ['lunch', 'dinner'],
+                forStudent: false,
+                dealType: ['specialOffer'],
+                servedFood: ['none', 'vegetarian', 'vegan'],
+                dealMood: ['cosy'],
+            }
         },
         {
             id: 3,
@@ -40,7 +58,16 @@ export class HomePage {
             type: "HEALTHY FOOD",
             distance: 1.0,
             picture: "healthyfood.jpg",
-            labels: []
+            labels: ['cheap', 'vegan'],
+            filters: {
+                foodType: ['healthy'],
+                maxPrice: '100',
+                momentOfTheDay: ['lunch', 'dinner'],
+                forStudent: false,
+                dealType: ['specialOffer'],
+                servedFood: ['none', 'vegetarian', 'vegan'],
+                dealMood: ['cosy', 'chic'],
+            }
         },
         {
             id: 4,
@@ -51,7 +78,16 @@ export class HomePage {
             type: "ITALIAN FOOD",
             distance: 1.2,
             picture: "italianfood.jpg",
-            labels: []
+            labels: ['medium', 'vegetarian'],
+            filters: {
+                foodType: ['italian'],
+                maxPrice: '200',
+                momentOfTheDay: ['lunch', 'dinner'],
+                forStudent: false,
+                dealType: ['discount'],
+                servedFood: ['none', 'vegetarian'],
+                dealMood: ['cosy'],
+            }
         },
         {
             id: 5,
@@ -62,13 +98,26 @@ export class HomePage {
             type: "EUROPEAN FOOD",
             distance: 0.2,
             picture: "europeanfood.jpg",
-            labels: []
-        },
+            labels: ['expensive', 'vegan'],
+            filters: {
+                foodType: ['european'],
+                maxPrice: '400',
+                momentOfTheDay: ['lunch'],
+                forStudent: false,
+                dealType: ['specialOffer'],
+                servedFood: ['none', 'vegetarian', 'vegan'],
+                dealMood: ['cosy', 'romantic', 'chic'],
+            }
+        }
     ]
 
-    filters = { foodType: [] ,
+    filteredList;
+
+    filters = {
+        foodType: [],
         maxPrice: 'none',
         momentOfTheDay: [],
+        forStudent: true,
         dealType: [],
         foodPreference: 'none',
         dealMood: [],
@@ -76,7 +125,7 @@ export class HomePage {
     };
 
     constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, public modalCtrl: ModalController) {
-
+        this.filteredList = this.dealsList
     }
 
     viewDetails(deal) {
@@ -85,13 +134,28 @@ export class HomePage {
     }
 
     openFiltersModal() {
-        console.log("clicked");
         const modal = this.modalCtrl.create(FiltersModal, { filters: this.filters });
         modal.onDidDismiss(data => {
-            this.filters = data
+            if (data) {
+                this.filters = data;
+                this.filterDeals();
+            }
        });
         modal.present();
     }
+
+    filterDeals () {
+        this.filteredList = this.dealsList.filter(deal => this.filters.maxPrice == 'none' || (deal.filters.maxPrice != 'none' && this.filters.maxPrice != 'none' && parseInt(deal.filters.maxPrice) <= parseInt(this.filters.maxPrice)))
+                .filter(deal => deal.filters.servedFood.some(filter => filter == this.filters.foodPreference))
+                .filter(deal => deal.distance <= this.filters.radius)
+                .filter(deal => this.filters.foodType.length == 0 || this.filters.foodType.some(filter => deal.filters.foodType.includes(filter)))
+                .filter(deal => this.filters.dealMood.length == 0 || this.filters.dealMood.every(filter => deal.filters.dealMood.includes(filter)))
+                .filter(deal => this.filters.momentOfTheDay.length == 0 || this.filters.momentOfTheDay.some(filter => deal.filters.momentOfTheDay.includes(filter)))
+                .filter(deal => this.filters.dealType.length == 0 || this.filters.dealType.some(filter => deal.filters.dealType.includes(filter)))
+                .filter(deal => this.filters.forStudent == true || this.filters.forStudent == false && deal.filters.forStudent == false)
+        ;
+    }
+
 
 }
 
