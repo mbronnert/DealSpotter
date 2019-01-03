@@ -52,7 +52,7 @@
             <ion-label>Deal type </ion-label>
             <ion-select multiple="true" [(ngModel)]="filters.dealType">
                 <ion-option value="specialOffer">Special offer</ion-option>
-                <ion-option value="Discount">Discount</ion-option>
+                <ion-option value="discount">Discount</ion-option>
             </ion-select>
         </ion-item>
         <ion-item class="modal-item-segment">
@@ -77,9 +77,13 @@
                 <ion-option value="chic">Chic</ion-option>
             </ion-select>
         </ion-item>
+        <ion-item>
+            <ion-label>Show student offers</ion-label>
+            <ion-toggle [(ngModel)]="filters.forStudent" checked="true"></ion-toggle>
+        </ion-item>
         <ion-item style="display:block;">
             <ion-label item-start>Radius</ion-label>
-            <ion-badge class="badge" item-end>{{filters.radius}}</ion-badge>
+            <ion-badge class="badge" item-end>{{filters.radius}} km</ion-badge>
             <ion-range min="0" max="10" step="0.1" pin="true" [(ngModel)]="filters.radius">
                <ion-label small range-left>0 km</ion-label>
                <ion-label small range-right>10 km</ion-label>

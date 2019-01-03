@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content class="card-background-page">
-  <ion-card *ngFor="let deal of dealsList" (click)="viewDetails(deal)">
+  <ion-card *ngFor="let deal of filteredList" (click)="viewDetails(deal)">
     <img src="assets/imgs/restaurants-pictures/{{deal.picture}}"/>
     <div class="card-left">
         <div class="card-title">{{deal.name}}</div>
@@ -20,7 +20,15 @@
     <div class="card-right">
         <div class="card-title">{{deal.restaurantName}}</div>
         <div class="card-subtitle">{{deal.type}}</div>
-        <div class="card-label"></div>
+        <div class="card-label">
+
+            <ion-icon *ngIf="deal.labels.includes('cheap')" name="logo-euro"></ion-icon>
+            <ion-icon *ngIf="deal.labels.includes('cheap') || deal.labels.includes('medium')" name="logo-euro"></ion-icon>
+            <ion-icon *ngIf="deal.labels.includes('cheap') || deal.labels.includes('medium') || deal.labels.includes('expensive')" name="logo-euro"></ion-icon>
+            <ion-icon style="margin-left:5px;" *ngIf="deal.labels.includes('vegetarian') && !deal.labels.includes('vegan')" name="nutrition"></ion-icon>
+            <ion-icon style="margin-left:5px;" *ngIf="deal.labels.includes('vegan')" name="leaf"></ion-icon>
+            <ion-icon style="margin-left:5px;" *ngIf="deal.labels.includes('forStudent')" name="school"></ion-icon>
+        </div>
     </div>
   </ion-card>
 
