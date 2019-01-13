@@ -3,9 +3,14 @@
     <ion-title>
       About
     </ion-title>
+    <ion-buttons end>
+      <button ion-button color="primary" (click)="openFiltersModal()">
+          Filter
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
+  <div #map id="map" style="height:100%;"></div>
 </ion-content>
